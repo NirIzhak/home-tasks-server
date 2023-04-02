@@ -41,7 +41,7 @@ app.get('/doneTasks', async (req, res) => {
 
   app.get('/unDoneTasks', async (req, res) => {
     try {
-      const result = await TaskModel.find({done: true});
+      const result = await TaskModel.find({done: false});
       res.json(result);
     } catch (err) {
       res.json(err);
