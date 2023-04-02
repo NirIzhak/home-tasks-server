@@ -29,6 +29,27 @@ app.post('/addTask', async (req, res) => {
 })
 
 
+app.get('/doneTasks', async (req, res) => {
+    try {
+      const result = await TaskModel.find({done: true});
+      res.json(result);
+    } catch (err) {
+      res.json(err);
+    }
+  });
+
+
+  app.get('/unDoneTasks', async (req, res) => {
+    try {
+      const result = await TaskModel.find({done: true});
+      res.json(result);
+    } catch (err) {
+      res.json(err);
+    }
+  });
+  
+
+
 app.delete('/deleteTask/:id', async (req, res) => {
     try {
         const taskId = req.params.id;
